@@ -1,0 +1,345 @@
+[root@fedora-riscv linux]# ./maxvm -jar /root/dacapo-9.12-MR1-bach.jar xalan -s small
+Using scaled threading model. 4 processors detected, 4 threads used to drive the workload, in a possible range of [1,10]
+===== DaCapo 9.12-MR1 xalan starting =====
+Normal completion.
+FatalError: stack reset position two
+sanity check
+
+FATAL VM ERROR[1]: sanity check
+Faulting thread: VmOperationThread[id=2]
+------ Stack dump for thread VmOperationThread[id=2] ------
+        -> com.sun.max.vm.runtime.FatalError.dumpStackAndThreadLocals(Lcom/sun/max/unsafe/Pointer;Z)V {MaxTargetMethod@0x3fb2f72048} [0x3fb2f72048+360]
+        -> com.sun.max.vm.runtime.FatalError.unexpected(Ljava/lang/String;ZLjava/lang/Throwable;Lcom/sun/max/unsafe/Pointer;)Lcom/sun/max/vm/runtime/FatalError; {MaxTargetMethod@0x3fb2e0d058} [0x3fb2e0d058+1484]
+        -> com.oracle.max.vm.ext.maxri.MaxTargetMethod.redirectTo(Lcom/sun/max/vm/compiler/target/TargetMethod;)V {MaxTargetMethod@0x3fb337cbf8} [0x3fb337cbf8+592]
+        -> com.sun.max.vm.compiler.deopt.Deoptimization.doIt()V {MaxTargetMethod@0x3fb31f8578} [0x3fb31f8578+1352]
+        -> com.sun.max.vm.runtime.VmOperation.run()V {MaxTargetMethod@0x3fb30581e0} [0x3fb30581e0+620]
+        -> com.sun.max.vm.runtime.VmOperationThread.run()V {MaxTargetMethod@0x3fb2f77b18} [0x3fb2f77b18+1568]
+        -> com.sun.max.vm.thread.VmThread.executeRunnable(Lcom/sun/max/vm/thread/VmThread;)V {MaxTargetMethod@0x3fb2eaabe0} [0x3fb2eaabe0+268]
+        -> com.sun.max.vm.thread.VmThread.run(Lcom/sun/max/unsafe/Pointer;Lcom/sun/max/unsafe/Pointer;Lcom/sun/max/unsafe/Pointer;)V {MaxTargetMethod@0x3fb2c06fa8} [0x3fb2c06fa8+2024]
+        -> native{./libjvm.so (0x3fee1d4000) at thread_run (0x3fee1e9abe+408)}
+------ Thread locals for thread VmOperationThread[id=2] ------
+                              SAFEPOINT_LATCH: {E} 0x2348c160  {D} 0x2348c2c8  {T} <trigger latch>
+                                         ETLA: {E} 0x2348c160  {D} 0x2348c160  {T} 0x2348c160
+                                         DTLA: {E} 0x2348c2c8  {D} 0x2348c2c8  {T} 0x2348c2c8
+                                         TTLA: {E} 0x2348bff8  {D} 0x2348bff8  {T} 0x2348bff8
+                         NATIVE_THREAD_LOCALS: {E} 0x2348c430  {D} 0x2348c430  {T} 0x2348c430
+                                 FORWARD_LINK: {E} 0x23469160  {D} 0x23469160  {T} 0x23469160
+                                BACKWARD_LINK: {E} 0x23492160  {D} 0x23492160  {T} 0x23492160
+                                 VM_OPERATION: {E} 0  {D} 0  {T} 0
+                                           ID: {E} 0x2  {D} 0x2  {T} 0x2
+                                    VM_THREAD: {E} 0x3fae526318 VmOperationThread[id=2]  {D} 0x3fae526318 VmOperationThread[id=2]  {T} 0x3fae526318 VmOperationThread[id=2]
+                                      JNI_ENV: {E} 0x3fee1f2010  {D} 0x3fee1f2010  {T} 0x3fee1f2010
+                       LAST_JAVA_FRAME_ANCHOR: {E} 0x3fce1d26f0  {D} 0  {T} 0
+                                MUTATOR_STATE: {E} 0x1  {D} 0  {T} 0
+                                       FROZEN: {E} 0  {D} 0  {T} 0
+                                  TRAP_NUMBER: {E} 0  {D} 0  {T} 0
+                     TRAP_INSTRUCTION_POINTER: {E} 0  {D} 0  {T} 0
+                           TRAP_FAULT_ADDRESS: {E} 0  {D} 0  {T} 0
+                          TRAP_LATCH_REGISTER: {E} 0  {D} 0  {T} 0
+                   HIGHEST_STACK_SLOT_ADDRESS: {E} 0x3fce1d4000  {D} 0x3fce1d4000  {T} 0x3fce1d4000
+                    LOWEST_STACK_SLOT_ADDRESS: {E} 0x3fce0d6000  {D} 0x3fce0d6000  {T} 0x3fce0d6000
+             LOWEST_ACTIVE_STACK_SLOT_ADDRESS: {E} 0x3fce1d2360  {D} 0x3fce1d2360  {T} 0x3fce1d2360
+                          STACK_REFERENCE_MAP: {E} 0x2348c480  {D} 0x2348c480  {T} 0x2348c480
+                         STACK_REFERENCE_SIZE: {E} 0x3fc8  {D} 0x3fc8  {T} 0x3fc8
+                    CUSTOM_ALLOCATION_ENABLED: {E} 0  {D} 0  {T} 0
+                                      SUSPEND: {E} 0  {D} 0  {T} 0
+                               PROFILER_STATE: {E} 0  {D} 0  {T} 0
+                                        JVMTI: {E} 0  {D} 0  {T} 0
+                                     JVMTI_TL: {E} 0  {D} 0  {T} 0
+                                  COMPILATION: {E} 0x3fb1e074f8  {D} 0x3fb1e074f8  {T} 0x3fb1e074f8
+                        NATIVE_CALLS_DISABLED: {E} 0  {D} 0  {T} 0
+                               ERROR_CONTEXTS: {E} 0x3fb1e074f8  {D} 0x3fb1e074f8  {T} 0x3fb1e074f8
+                     TRACE_UNDER_CONSTRUCTION: {E} 0x3fb1e074f8  {D} 0x3fb1e074f8  {T} 0x3fb1e074f8
+                                 VMLOG_RECORD: {E} 0x3fce1d9e18  {D} 0x3fce1d9e18  {T} 0x3fce1d9e18
+                                 VMLOG_BUFFER: {E} 0x3fc8000c60  {D} 0x3fc8000c60  {T} 0x3fc8000c60
+                         VMLOG_BUFFER_OFFSETS: {E} 0x18  {D} 0x18  {T} 0x18
+                           GC_DISABLING_COUNT: {E} 0  {D} 0  {T} 0
+                                     TLAB_TOP: {E} 0x3fd05f7ab8  {D} 0  {T} 0
+                                    TLAB_MARK: {E} 0x3fd05e7af8  {D} 0  {T} 0
+                                 TLAB_TOP_TMP: {E} 0  {D} 0  {T} 0
+                                TLAB_MARK_TMP: {E} 0  {D} 0  {T} 0
+                           ALLOCATION_COUNTER: {E} 0  {D} 0  {T} 0
+                                TLAB_DISABLED: {E} 0  {D} 0  {T} 0
+                           TLAB_REFILL_POLICY: {E} 0x3fce1d9e38  {D} 0  {T} 0
+                                TLAB_LOG_TAIL: {E} 0  {D} 0  {T} 0
+                  SAMPLING_ALLOCATION_COUNTER: {E} 0  {D} 0  {T} 0
+------ Stack dump for thread Signal Dispatcher[id=3] ------
+        -> com.sun.max.vm.runtime.SignalDispatcher.nativeSignalWait()V {MaxTargetMethod@0x3fb2c486e0} [0x3fb2c486e0+1220]
+        -> com.sun.max.vm.runtime.SignalDispatcher.waitForSignal()I {MaxTargetMethod@0x3fb30e2868} [0x3fb30e2868+540]
+        -> com.sun.max.vm.runtime.SignalDispatcher.run()V {MaxTargetMethod@0x3fb2f7f5a0} [0x3fb2f7f5a0+272]
+        -> com.sun.max.vm.thread.VmThread.executeRunnable(Lcom/sun/max/vm/thread/VmThread;)V {MaxTargetMethod@0x3fb2eaabe0} [0x3fb2eaabe0+268]
+        -> com.sun.max.vm.thread.VmThread.run(Lcom/sun/max/unsafe/Pointer;Lcom/sun/max/unsafe/Pointer;Lcom/sun/max/unsafe/Pointer;)V {MaxTargetMethod@0x3fb2c06fa8} [0x3fb2c06fa8+2024]
+        -> native{./libjvm.so (0x3fee1d4000) at thread_run (0x3fee1e9abe+408)}
+------ Thread locals for thread Signal Dispatcher[id=3] ------
+                              SAFEPOINT_LATCH: {E} 0x2349dff8  {D} 0x2349e2c8  {T} <trigger latch>
+                                         ETLA: {E} 0x2349e160  {D} 0x2349e160  {T} 0x2349e160
+                                         DTLA: {E} 0x2349e2c8  {D} 0x2349e2c8  {T} 0x2349e2c8
+                                         TTLA: {E} 0x2349dff8  {D} 0x2349dff8  {T} 0x2349dff8
+                         NATIVE_THREAD_LOCALS: {E} 0x2349e430  {D} 0x2349e430  {T} 0x2349e430
+                                 FORWARD_LINK: {E} 0x23498160  {D} 0x23498160  {T} 0x23498160
+                                BACKWARD_LINK: {E} 0x2376d160  {D} 0x2376d160  {T} 0x2376d160
+                                 VM_OPERATION: {E} 0x3fd05e2120  {D} 0  {T} 0
+                                           ID: {E} 0x3  {D} 0x3  {T} 0x3
+                                    VM_THREAD: {E} 0x3fb06d7230 Signal Dispatcher[id=3]  {D} 0x3fb06d7230 Signal Dispatcher[id=3]  {T} 0x3fb06d7230 Signal Dispatcher[id=3]
+                                      JNI_ENV: {E} 0x3fee1f2010  {D} 0x3fee1f2010  {T} 0x3fee1f2010
+                       LAST_JAVA_FRAME_ANCHOR: {E} 0x3fcdecf420  {D} 0  {T} 0
+                                MUTATOR_STATE: {E} 0x2  {D} 0  {T} 0
+                                       FROZEN: {E} 0  {D} 0  {T} 0
+                                  TRAP_NUMBER: {E} 0  {D} 0  {T} 0
+                     TRAP_INSTRUCTION_POINTER: {E} 0  {D} 0  {T} 0
+                           TRAP_FAULT_ADDRESS: {E} 0  {D} 0  {T} 0
+                          TRAP_LATCH_REGISTER: {E} 0  {D} 0  {T} 0
+                   HIGHEST_STACK_SLOT_ADDRESS: {E} 0x3fcded1000  {D} 0x3fcded1000  {T} 0x3fcded1000
+                    LOWEST_STACK_SLOT_ADDRESS: {E} 0x3fcddd3000  {D} 0x3fcddd3000  {T} 0x3fcddd3000
+             LOWEST_ACTIVE_STACK_SLOT_ADDRESS: {E} 0  {D} 0  {T} 0
+                          STACK_REFERENCE_MAP: {E} 0x2349e480  {D} 0x2349e480  {T} 0x2349e480
+                         STACK_REFERENCE_SIZE: {E} 0x3fc8  {D} 0x3fc8  {T} 0x3fc8
+                    CUSTOM_ALLOCATION_ENABLED: {E} 0  {D} 0  {T} 0
+                                      SUSPEND: {E} 0  {D} 0  {T} 0
+                               PROFILER_STATE: {E} 0  {D} 0  {T} 0
+                                        JVMTI: {E} 0  {D} 0  {T} 0
+                                     JVMTI_TL: {E} 0  {D} 0  {T} 0
+                                  COMPILATION: {E} 0x3fb1e074f8  {D} 0x3fb1e074f8  {T} 0x3fb1e074f8
+                        NATIVE_CALLS_DISABLED: {E} 0  {D} 0  {T} 0
+                               ERROR_CONTEXTS: {E} 0x3fb1e074f8  {D} 0x3fb1e074f8  {T} 0x3fb1e074f8
+                     TRACE_UNDER_CONSTRUCTION: {E} 0x3fb1e074f8  {D} 0x3fb1e074f8  {T} 0x3fb1e074f8
+                                 VMLOG_RECORD: {E} 0x3fce1d9d00  {D} 0x3fce1d9d00  {T} 0x3fce1d9d00
+                                 VMLOG_BUFFER: {E} 0  {D} 0  {T} 0
+                         VMLOG_BUFFER_OFFSETS: {E} 0  {D} 0  {T} 0
+                           GC_DISABLING_COUNT: {E} 0  {D} 0  {T} 0
+                                     TLAB_TOP: {E} 0  {D} 0  {T} 0
+                                    TLAB_MARK: {E} 0  {D} 0  {T} 0
+                                 TLAB_TOP_TMP: {E} 0  {D} 0  {T} 0
+                                TLAB_MARK_TMP: {E} 0  {D} 0  {T} 0
+                           ALLOCATION_COUNTER: {E} 0  {D} 0  {T} 0
+                                TLAB_DISABLED: {E} 0  {D} 0  {T} 0
+                           TLAB_REFILL_POLICY: {E} 0x3fce1d9d20  {D} 0  {T} 0
+                                TLAB_LOG_TAIL: {E} 0  {D} 0  {T} 0
+                  SAMPLING_ALLOCATION_COUNTER: {E} 0  {D} 0  {T} 0
+------ Stack dump for thread Finalizer[id=5] ------
+        -> com.sun.max.vm.runtime.OSMonitor.nativeConditionWait(Lcom/sun/max/unsafe/Word;Lcom/sun/max/unsafe/Word;J)Z {MaxTargetMethod@0x3fb2c83c30} [0x3fb2c83c30+1256]
+        -> com.sun.max.vm.monitor.modal.sync.StandardJavaMonitor.monitorWait(J)V {MaxTargetMethod@0x3fb3573348} [0x3fb3573348+960]
+        -> com.sun.max.vm.monitor.modal.sync.ProxyAcquirableJavaMonitor.monitorWait(J)V {MaxTargetMethod@0x3fb3571c98} [0x3fb3571c98+208]
+        -> com.sun.max.vm.monitor.modal.modehandlers.inflated.InflatedMonitorModeHandler.monitorWait(Ljava/lang/Object;JLcom/sun/max/vm/monitor/modal/modehandlers/inflated/InflatedMonitorLockword;Lcom/sun/max/vm/monitor/modal/modehandlers/inflated/InflatedMonitorLockword;)V {MaxTargetMethod@0x3fb3405208} [0x3fb3405208+704]
+        -> com.sun.max.vm.monitor.modal.modehandlers.inflated.InflatedMonitorModeHandler$Delegate.delegateMonitorWait(Ljava/lang/Object;JLcom/sun/max/vm/monitor/modal/modehandlers/ModalLockword;)V {MaxTargetMethod@0x3fb3277888} [0x3fb3277888+684]
+        -> com.sun.max.vm.monitor.modal.modehandlers.lightweight.thin.ThinLockModeHandler.monitorWait(Ljava/lang/Object;JLcom/sun/max/vm/monitor/modal/modehandlers/ModalLockword;)V {MaxTargetMethod@0x3fb30cb5a8} [0x3fb30cb5a8+936]
+        -> com.sun.max.vm.monitor.modal.modehandlers.lightweight.thin.ThinLockModeHandler$FastPath.monitorWait(Ljava/lang/Object;J)V {MaxTargetMethod@0x3fb2f72f98} [0x3fb2f72f98+160]
+        -> java.lang.Object.wait(J)V {MaxTargetMethod@0x3fb2dfa520} [0x3fb2dfa520+120]
+        -> java.lang.ref.ReferenceQueue.remove(J)Ljava/lang/ref/Reference; {MaxTargetMethod@0x3fb3278948} [0x3fb3278948+800]
+        -> java.lang.ref.ReferenceQueue.remove()Ljava/lang/ref/Reference; {MaxTargetMethod@0x3fb30cc4a0} [0x3fb30cc4a0+116]
+        -> java.lang.ref.Finalizer$FinalizerThread.run()V {MaxTargetMethod@0x3fb2f74bf8} [0x3fb2f74bf8+684]
+        -> com.sun.max.vm.thread.VmThread.executeRunnable(Lcom/sun/max/vm/thread/VmThread;)V {MaxTargetMethod@0x3fb2eaabe0} [0x3fb2eaabe0+268]
+        -> com.sun.max.vm.thread.VmThread.run(Lcom/sun/max/unsafe/Pointer;Lcom/sun/max/unsafe/Pointer;Lcom/sun/max/unsafe/Pointer;)V {MaxTargetMethod@0x3fb2c06fa8} [0x3fb2c06fa8+2024]
+        -> native{./libjvm.so (0x3fee1d4000) at thread_run (0x3fee1e9abe+408)}
+------ Thread locals for thread Finalizer[id=5] ------
+                              SAFEPOINT_LATCH: {E} 0x23497ff8  {D} 0x234982c8  {T} <trigger latch>
+                                         ETLA: {E} 0x23498160  {D} 0x23498160  {T} 0x23498160
+                                         DTLA: {E} 0x234982c8  {D} 0x234982c8  {T} 0x234982c8
+                                         TTLA: {E} 0x23497ff8  {D} 0x23497ff8  {T} 0x23497ff8
+                         NATIVE_THREAD_LOCALS: {E} 0x23498430  {D} 0x23498430  {T} 0x23498430
+                                 FORWARD_LINK: {E} 0x23492160  {D} 0x23492160  {T} 0x23492160
+                                BACKWARD_LINK: {E} 0x2349e160  {D} 0x2349e160  {T} 0x2349e160
+                                 VM_OPERATION: {E} 0x3fd05e2120  {D} 0  {T} 0
+                                           ID: {E} 0x5  {D} 0x5  {T} 0x5
+                                    VM_THREAD: {E} 0x3fae2dc3b0 Finalizer[id=5]  {D} 0x3fae2dc3b0 Finalizer[id=5]  {T} 0x3fae2dc3b0 Finalizer[id=5]
+                                      JNI_ENV: {E} 0x3fee1f2010  {D} 0x3fee1f2010  {T} 0x3fee1f2010
+                       LAST_JAVA_FRAME_ANCHOR: {E} 0x3fcdfd01c0  {D} 0  {T} 0
+                                MUTATOR_STATE: {E} 0x2  {D} 0  {T} 0
+                                       FROZEN: {E} 0  {D} 0  {T} 0
+                                  TRAP_NUMBER: {E} 0  {D} 0  {T} 0
+                     TRAP_INSTRUCTION_POINTER: {E} 0  {D} 0  {T} 0
+                           TRAP_FAULT_ADDRESS: {E} 0  {D} 0  {T} 0
+                          TRAP_LATCH_REGISTER: {E} 0  {D} 0  {T} 0
+                   HIGHEST_STACK_SLOT_ADDRESS: {E} 0x3fcdfd2000  {D} 0x3fcdfd2000  {T} 0x3fcdfd2000
+                    LOWEST_STACK_SLOT_ADDRESS: {E} 0x3fcded4000  {D} 0x3fcded4000  {T} 0x3fcded4000
+             LOWEST_ACTIVE_STACK_SLOT_ADDRESS: {E} 0  {D} 0  {T} 0
+                          STACK_REFERENCE_MAP: {E} 0x23498480  {D} 0x23498480  {T} 0x23498480
+                         STACK_REFERENCE_SIZE: {E} 0x3fc8  {D} 0x3fc8  {T} 0x3fc8
+                    CUSTOM_ALLOCATION_ENABLED: {E} 0  {D} 0  {T} 0
+                                      SUSPEND: {E} 0  {D} 0  {T} 0
+                               PROFILER_STATE: {E} 0  {D} 0  {T} 0
+                                        JVMTI: {E} 0  {D} 0  {T} 0
+                                     JVMTI_TL: {E} 0  {D} 0  {T} 0
+                                  COMPILATION: {E} 0  {D} 0  {T} 0
+                        NATIVE_CALLS_DISABLED: {E} 0  {D} 0  {T} 0
+                               ERROR_CONTEXTS: {E} 0x3fb1e074f8  {D} 0x3fb1e074f8  {T} 0x3fb1e074f8
+                     TRACE_UNDER_CONSTRUCTION: {E} 0x3fb1e074f8  {D} 0x3fb1e074f8  {T} 0x3fb1e074f8
+                                 VMLOG_RECORD: {E} 0x3fce1d9d58  {D} 0x3fce1d9d58  {T} 0x3fce1d9d58
+                                 VMLOG_BUFFER: {E} 0  {D} 0  {T} 0
+                         VMLOG_BUFFER_OFFSETS: {E} 0  {D} 0  {T} 0
+                           GC_DISABLING_COUNT: {E} 0  {D} 0  {T} 0
+                                     TLAB_TOP: {E} 0x3fd0033e60  {D} 0  {T} 0
+                                    TLAB_MARK: {E} 0x3fd00338b8  {D} 0  {T} 0
+                                 TLAB_TOP_TMP: {E} 0  {D} 0  {T} 0
+                                TLAB_MARK_TMP: {E} 0  {D} 0  {T} 0
+                           ALLOCATION_COUNTER: {E} 0  {D} 0  {T} 0
+                                TLAB_DISABLED: {E} 0  {D} 0  {T} 0
+                           TLAB_REFILL_POLICY: {E} 0x3fce1d9d78  {D} 0  {T} 0
+                                TLAB_LOG_TAIL: {E} 0  {D} 0  {T} 0
+                  SAMPLING_ALLOCATION_COUNTER: {E} 0  {D} 0  {T} 0
+------ Stack dump for thread Reference Handler[id=4] ------
+        -> com.sun.max.vm.runtime.OSMonitor.nativeConditionWait(Lcom/sun/max/unsafe/Word;Lcom/sun/max/unsafe/Word;J)Z {MaxTargetMethod@0x3fb2c83c30} [0x3fb2c83c30+1256]
+        -> com.sun.max.vm.monitor.modal.sync.StandardJavaMonitor.monitorWait(J)V {MaxTargetMethod@0x3fb3573348} [0x3fb3573348+960]
+        -> com.sun.max.vm.monitor.modal.modehandlers.inflated.InflatedMonitorModeHandler.monitorWait(Ljava/lang/Object;JLcom/sun/max/vm/monitor/modal/modehandlers/inflated/InflatedMonitorLockword;Lcom/sun/max/vm/monitor/modal/modehandlers/inflated/InflatedMonitorLockword;)V {MaxTargetMethod@0x3fb3405208} [0x3fb3405208+704]
+        -> com.sun.max.vm.monitor.modal.modehandlers.inflated.InflatedMonitorModeHandler$Delegate.delegateMonitorWait(Ljava/lang/Object;JLcom/sun/max/vm/monitor/modal/modehandlers/ModalLockword;)V {MaxTargetMethod@0x3fb3277888} [0x3fb3277888+684]
+        -> com.sun.max.vm.monitor.modal.modehandlers.lightweight.thin.ThinLockModeHandler.monitorWait(Ljava/lang/Object;JLcom/sun/max/vm/monitor/modal/modehandlers/ModalLockword;)V {MaxTargetMethod@0x3fb30cb5a8} [0x3fb30cb5a8+936]
+        -> com.sun.max.vm.monitor.modal.modehandlers.lightweight.thin.ThinLockModeHandler$FastPath.monitorWait(Ljava/lang/Object;J)V {MaxTargetMethod@0x3fb2f72f98} [0x3fb2f72f98+160]
+        -> java.lang.Object.wait(J)V {MaxTargetMethod@0x3fb2dfa520} [0x3fb2dfa520+120]
+        -> java.lang.ref.Reference.tryHandlePending(Z)Z {MaxTargetMethod@0x3fb30d0c88} [0x3fb30d0c88+988]
+        -> java.lang.ref.Reference$ReferenceHandler.run()V {MaxTargetMethod@0x3fb2f75e20} [0x3fb2f75e20+100]
+        -> com.sun.max.vm.thread.VmThread.executeRunnable(Lcom/sun/max/vm/thread/VmThread;)V {MaxTargetMethod@0x3fb2eaabe0} [0x3fb2eaabe0+268]
+        -> com.sun.max.vm.thread.VmThread.run(Lcom/sun/max/unsafe/Pointer;Lcom/sun/max/unsafe/Pointer;Lcom/sun/max/unsafe/Pointer;)V {MaxTargetMethod@0x3fb2c06fa8} [0x3fb2c06fa8+2024]
+        -> native{./libjvm.so (0x3fee1d4000) at thread_run (0x3fee1e9abe+408)}
+------ Thread locals for thread Reference Handler[id=4] ------
+                              SAFEPOINT_LATCH: {E} 0x23491ff8  {D} 0x234922c8  {T} <trigger latch>
+                                         ETLA: {E} 0x23492160  {D} 0x23492160  {T} 0x23492160
+                                         DTLA: {E} 0x234922c8  {D} 0x234922c8  {T} 0x234922c8
+                                         TTLA: {E} 0x23491ff8  {D} 0x23491ff8  {T} 0x23491ff8
+                         NATIVE_THREAD_LOCALS: {E} 0x23492430  {D} 0x23492430  {T} 0x23492430
+                                 FORWARD_LINK: {E} 0x2348c160  {D} 0x2348c160  {T} 0x2348c160
+                                BACKWARD_LINK: {E} 0x23498160  {D} 0x23498160  {T} 0x23498160
+                                 VM_OPERATION: {E} 0x3fd05e2120  {D} 0  {T} 0
+                                           ID: {E} 0x4  {D} 0x4  {T} 0x4
+                                    VM_THREAD: {E} 0x3faed9b130 Reference Handler[id=4]  {D} 0x3faed9b130 Reference Handler[id=4]  {T} 0x3faed9b130 Reference Handler[id=4]
+                                      JNI_ENV: {E} 0x3fee1f2010  {D} 0x3fee1f2010  {T} 0x3fee1f2010
+                       LAST_JAVA_FRAME_ANCHOR: {E} 0x3fce0d1280  {D} 0  {T} 0
+                                MUTATOR_STATE: {E} 0x2  {D} 0  {T} 0
+                                       FROZEN: {E} 0  {D} 0  {T} 0
+                                  TRAP_NUMBER: {E} 0  {D} 0  {T} 0
+                     TRAP_INSTRUCTION_POINTER: {E} 0  {D} 0  {T} 0
+                           TRAP_FAULT_ADDRESS: {E} 0  {D} 0  {T} 0
+                          TRAP_LATCH_REGISTER: {E} 0  {D} 0  {T} 0
+                   HIGHEST_STACK_SLOT_ADDRESS: {E} 0x3fce0d3000  {D} 0x3fce0d3000  {T} 0x3fce0d3000
+                    LOWEST_STACK_SLOT_ADDRESS: {E} 0x3fcdfd5000  {D} 0x3fcdfd5000  {T} 0x3fcdfd5000
+             LOWEST_ACTIVE_STACK_SLOT_ADDRESS: {E} 0  {D} 0  {T} 0
+                          STACK_REFERENCE_MAP: {E} 0x23492480  {D} 0x23492480  {T} 0x23492480
+                         STACK_REFERENCE_SIZE: {E} 0x3fc8  {D} 0x3fc8  {T} 0x3fc8
+                    CUSTOM_ALLOCATION_ENABLED: {E} 0  {D} 0  {T} 0
+                                      SUSPEND: {E} 0  {D} 0  {T} 0
+                               PROFILER_STATE: {E} 0  {D} 0  {T} 0
+                                        JVMTI: {E} 0  {D} 0  {T} 0
+                                     JVMTI_TL: {E} 0  {D} 0  {T} 0
+                                  COMPILATION: {E} 0x3fb1e074f8  {D} 0x3fb1e074f8  {T} 0x3fb1e074f8
+                        NATIVE_CALLS_DISABLED: {E} 0  {D} 0  {T} 0
+                               ERROR_CONTEXTS: {E} 0x3fb1e074f8  {D} 0x3fb1e074f8  {T} 0x3fb1e074f8
+                     TRACE_UNDER_CONSTRUCTION: {E} 0x3fb1e074f8  {D} 0x3fb1e074f8  {T} 0x3fb1e074f8
+                                 VMLOG_RECORD: {E} 0x3fce1d9dc0  {D} 0x3fce1d9dc0  {T} 0x3fce1d9dc0
+                                 VMLOG_BUFFER: {E} 0x3fa8000c60  {D} 0x3fa8000c60  {T} 0x3fa8000c60
+                         VMLOG_BUFFER_OFFSETS: {E} 0x18  {D} 0x18  {T} 0x18
+                           GC_DISABLING_COUNT: {E} 0  {D} 0  {T} 0
+                                     TLAB_TOP: {E} 0  {D} 0  {T} 0
+                                    TLAB_MARK: {E} 0  {D} 0  {T} 0
+                                 TLAB_TOP_TMP: {E} 0  {D} 0  {T} 0
+                                TLAB_MARK_TMP: {E} 0  {D} 0  {T} 0
+                           ALLOCATION_COUNTER: {E} 0  {D} 0  {T} 0
+                                TLAB_DISABLED: {E} 0  {D} 0  {T} 0
+                           TLAB_REFILL_POLICY: {E} 0x3fce1d9de0  {D} 0  {T} 0
+                                TLAB_LOG_TAIL: {E} 0  {D} 0  {T} 0
+                  SAMPLING_ALLOCATION_COUNTER: {E} 0  {D} 0  {T} 0
+------ Stack dump for thread main[id=1] ------
+        -> com.sun.max.vm.runtime.OSMonitor.nativeConditionWait(Lcom/sun/max/unsafe/Word;Lcom/sun/max/unsafe/Word;J)Z {MaxTargetMethod@0x3fb2c83c30} [0x3fb2c83c30+1256]
+        -> com.sun.max.vm.monitor.modal.sync.StandardJavaMonitor.monitorWait(J)V {MaxTargetMethod@0x3fb3573348} [0x3fb3573348+960]
+        -> com.sun.max.vm.monitor.modal.modehandlers.inflated.InflatedMonitorModeHandler.monitorWait(Ljava/lang/Object;JLcom/sun/max/vm/monitor/modal/modehandlers/inflated/InflatedMonitorLockword;Lcom/sun/max/vm/monitor/modal/modehandlers/inflated/InflatedMonitorLockword;)V {MaxTargetMethod@0x3fb3405208} [0x3fb3405208+704]
+        -> com.sun.max.vm.monitor.modal.modehandlers.inflated.InflatedMonitorModeHandler$Delegate.delegateMonitorWait(Ljava/lang/Object;JLcom/sun/max/vm/monitor/modal/modehandlers/ModalLockword;)V {MaxTargetMethod@0x3fb3277888} [0x3fb3277888+684]
+        -> com.sun.max.vm.monitor.modal.modehandlers.lightweight.thin.ThinLockModeHandler.monitorWait(Ljava/lang/Object;JLcom/sun/max/vm/monitor/modal/modehandlers/ModalLockword;)V {MaxTargetMethod@0x3fb30cb5a8} [0x3fb30cb5a8+936]
+        -> com.sun.max.vm.monitor.modal.modehandlers.lightweight.thin.ThinLockModeHandler$FastPath.monitorWait(Ljava/lang/Object;J)V {MaxTargetMethod@0x3fb2f72f98} [0x3fb2f72f98+160]
+        -> java.lang.Object.wait(J)V {MaxTargetMethod@0x3fb2dfa520} [0x3fb2dfa520+120]
+        -> com.sun.max.vm.runtime.VmOperationThread.addOperation(Lcom/sun/max/vm/runtime/VmOperation;Lcom/sun/max/vm/thread/VmThread;Lcom/sun/max/vm/runtime/VmOperationThread;)V {MaxTargetMethod@0x3fb30593d0} [0x3fb30593d0+1292]
+        -> com.sun.max.vm.runtime.VmOperationThread.submit(Lcom/sun/max/vm/runtime/VmOperation;)V {MaxTargetMethod@0x3fb2edd308} [0x3fb2edd308+1500]
+        -> com.sun.max.vm.compiler.deps.ConcreteTypeDependencyProcessor.invalidateDependencies(Ljava/util/ArrayList;Lcom/sun/max/vm/actor/holder/ClassActor;)V {MaxTargetMethod@0x3fb32d9500} [0x3fb32d9500+2004]
+        -> com.sun.max.vm.compiler.deps.DependenciesManager.addToHierarchy(Lcom/sun/max/vm/actor/holder/ClassActor;)V {MaxTargetMethod@0x3fb3147cd0} [0x3fb3147cd0+388]
+        -> com.sun.max.vm.type.ClassRegistry.define0(Lcom/sun/max/vm/actor/holder/ClassActor;)Lcom/sun/max/vm/actor/holder/ClassActor; {MaxTargetMethod@0x3fb2fef0a0} [0x3fb2fef0a0+1248]
+        -> com.sun.max.vm.classfile.ClassfileReader.defineClassActor(Ljava/lang/String;Ljava/lang/ClassLoader;[BIILjava/security/ProtectionDomain;Ljava/lang/Object;Z)Lcom/sun/max/vm/actor/holder/ClassActor; {MaxTargetMethod@0x3fb2f09798} [0x3fb2f09798+1808]
+        -> com.sun.max.vm.type.BootClassLoader.resolveClassOrNull(Lcom/sun/max/program/Classpath;Ljava/lang/String;)Ljava/lang/Class; {MaxTargetMethod@0x3fb2efedf0} [0x3fb2efedf0+888]
+        -> java.lang.ClassLoader.findBootstrapClass(Ljava/lang/String;)Ljava/lang/Class; {MaxTargetMethod@0x3fb2caadb8} [0x3fb2caadb8+316]
+        -> java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; {MaxTargetMethod@0x3fb30407d8} [0x3fb30407d8+472]
+        -> java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class; {MaxTargetMethod@0x3fb2ec0d98} [0x3fb2ec0d98+116]
+        -> java.lang.Class.forName0(Ljava/lang/String;ZLjava/lang/ClassLoader;Ljava/lang/Class;)Ljava/lang/Class; {MaxTargetMethod@0x3fb3197758} [0x3fb3197758+456]
+        -> java.lang.Class.forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class; {MaxTargetMethod@0x3fb31443b0} [0x3fb31443b0+1296]
+        -> com.sun.max.vm.type.JavaTypeDescriptor.resolveToJavaClass(Lcom/sun/max/vm/type/Descriptor;Ljava/lang/ClassLoader;)Ljava/lang/Class; {MaxTargetMethod@0x3fb2febf78} [0x3fb2febf78+1404]
+        -> com.sun.max.vm.type.TypeDescriptor.resolveType(Ljava/lang/ClassLoader;)Ljava/lang/Class; {MaxTargetMethod@0x3fb2e88f90} [0x3fb2e88f90+260]
+        -> com.sun.max.vm.classfile.constant.ClassConstant$Unresolved.resolve(Lcom/sun/max/vm/classfile/constant/ConstantPool;I)Lcom/sun/max/vm/actor/holder/ClassActor; {MaxTargetMethod@0x3fb2e89e90} [0x3fb2e89e90+124]
+        -> com.sun.max.vm.runtime.Snippets.resolveClassForNew0(Lcom/sun/max/vm/runtime/ResolutionGuard;)V {MaxTargetMethod@0x3fb2bf5940} [0x3fb2bf5940+1288]
+        -> sun.security.jca.ProviderList.<clinit>()V {T1XTargetMethod@0x3fb4c9e918} [0x3fb4c9e918+3440]
+        -> $INVOKE_STUB$.sun_security_jca_ProviderList$clinit$301.invoke([Lcom/sun/max/vm/value/Value;)Lcom/sun/max/vm/value/Value; {T1XTargetMethod@0x3fb4c9d050} [0x3fb4c9d050+2460]
+        -> OPT2BASELINE-Adapter(RR) {RISCV64AdapterGenerator$Opt2Baseline$Opt2BaselineAdapter@0x3fc40b0018} [0x3fc40b0018+24]
+        -> com.sun.max.vm.actor.member.MethodActor.invoke([Lcom/sun/max/vm/value/Value;)Lcom/sun/max/vm/value/Value; {MaxTargetMethod@0x3fb2ff8a60} [0x3fb2ff8a60+120]
+        -> com.sun.max.vm.actor.holder.ClassActor.callInitializer()V {MaxTargetMethod@0x3fb2e96840} [0x3fb2e96840+364]
+        -> com.sun.max.vm.actor.holder.ClassActor.makeInitialized()V {MaxTargetMethod@0x3fb2bf1dd8} [0x3fb2bf1dd8+228]
+        -> com.oracle.max.vm.ext.t1x.T1XTemplateSource.resolveAndGetStaticReference(Lcom/sun/max/vm/runtime/ResolutionGuard$InPool;)Lcom/sun/max/vm/reference/Reference; {MaxTargetMethod@0x3fb2bf3800} [0x3fb2bf3800+164]
+        -> sun.security.jca.Providers.<clinit>()V {T1XTargetMethod@0x3fb4c9b650} [0x3fb4c9b650+792]
+        -> $INVOKE_STUB$.sun_security_jca_Providers$clinit$300.invoke([Lcom/sun/max/vm/value/Value;)Lcom/sun/max/vm/value/Value; {T1XTargetMethod@0x3fb4c99dd8} [0x3fb4c99dd8+2460]
+        -> OPT2BASELINE-Adapter(RR) {RISCV64AdapterGenerator$Opt2Baseline$Opt2BaselineAdapter@0x3fc40b0018} [0x3fc40b0018+24]
+        -> com.sun.max.vm.actor.member.MethodActor.invoke([Lcom/sun/max/vm/value/Value;)Lcom/sun/max/vm/value/Value; {MaxTargetMethod@0x3fb2ff8a60} [0x3fb2ff8a60+120]
+        -> com.sun.max.vm.actor.holder.ClassActor.callInitializer()V {MaxTargetMethod@0x3fb2e96840} [0x3fb2e96840+364]
+        -> com.sun.max.vm.actor.holder.ClassActor.makeInitialized()V {MaxTargetMethod@0x3fb2bf1dd8} [0x3fb2bf1dd8+228]
+        -> sun.security.jca.GetInstance.getInstance(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance; {T1XTargetMethod@0x3fb4c980e0} [0x3fb4c980e0+360]
+        -> java.security.Security.getImpl(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/Object; {T1XTargetMethod@0x3fb4c966e8} [0x3fb4c966e8+676]
+        -> java.security.MessageDigest.getInstance(Ljava/lang/String;)Ljava/security/MessageDigest; {T1XTargetMethod@0x3fb4c93e28} [0x3fb4c93e28+916]
+        -> org.dacapo.harness.Digest.create()Ljava/security/MessageDigest; {T1XTargetMethod@0x3fb4c915c0} [0x3fb4c915c0+576]
+        -> org.dacapo.harness.FileDigest.getText(Ljava/io/File;ZLjava/io/File;)[B {T1XTargetMethod@0x3fb4c900b0} [0x3fb4c900b0+552]
+        -> org.dacapo.harness.FileDigest.get(Ljava/lang/String;ZZLjava/io/File;)[B {T1XTargetMethod@0x3fb4c8f440} [0x3fb4c8f440+816]
+        -> org.dacapo.harness.Benchmark.validate(Ljava/lang/String;)Z {T1XTargetMethod@0x3fb4c862d0} [0x3fb4c862d0+6584]
+        -> org.dacapo.harness.Benchmark.run(Lorg/dacapo/harness/Callback;Ljava/lang/String;)Z {T1XTargetMethod@0x3fb4980240} [0x3fb4980240+3556]
+        -> org.dacapo.harness.TestHarness.runBenchmark(Ljava/io/File;Ljava/lang/String;Lorg/dacapo/harness/TestHarness;)V {T1XTargetMethod@0x3fb4409070} [0x3fb4409070+7184]
+        -> org.dacapo.harness.TestHarness.main([Ljava/lang/String;)V {T1XTargetMethod@0x3fb434bfe0} [0x3fb434bfe0+20600]
+        -> $INVOKE_STUB$.org_dacapo_harness_TestHarness$main$135.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; {T1XTargetMethod@0x3fb434a108} [0x3fb434a108+3228]
+        -> OPT2BASELINE-Adapter(RRR) {RISCV64AdapterGenerator$Opt2Baseline$Opt2BaselineAdapter@0x3fc40b0058} [0x3fc40b0058+28]
+        -> java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; {MaxTargetMethod@0x3fb2c9c478} [0x3fb2c9c478+540]
+        -> BASELINE2OPT-Adapter(RRR) {RISCV64AdapterGenerator$Baseline2Opt$Baseline2OptAdapter@0x3fb2bf3a50} [0x3fb2bf3a50+32]
+        -> Harness.main([Ljava/lang/String;)V {T1XTargetMethod@0x3fb4340fe8} [0x3fb4340fe8+3728]
+        -> $INVOKE_STUB$.Harness$main$133.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; {T1XTargetMethod@0x3fb433f498} [0x3fb433f498+3228]
+        -> OPT2BASELINE-Adapter(RRR) {RISCV64AdapterGenerator$Opt2Baseline$Opt2BaselineAdapter@0x3fc40b0058} [0x3fc40b0058+28]
+        -> java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; {MaxTargetMethod@0x3fb2c9c478} [0x3fb2c9c478+540]
+        -> com.sun.max.vm.run.java.JavaRunScheme.lookupAndInvokeMain(Ljava/lang/Class;)V {MaxTargetMethod@0x3fb2ec0488} [0x3fb2ec0488+1084]
+        -> com.sun.max.vm.run.java.JavaRunScheme.run()V {MaxTargetMethod@0x3fb2c09398} [0x3fb2c09398+1352]
+        -> com.sun.max.vm.thread.VmThread.executeRunnable(Lcom/sun/max/vm/thread/VmThread;)V {MaxTargetMethod@0x3fb2eaabe0} [0x3fb2eaabe0+192]
+        -> com.sun.max.vm.thread.VmThread.run(Lcom/sun/max/unsafe/Pointer;Lcom/sun/max/unsafe/Pointer;Lcom/sun/max/unsafe/Pointer;)V {MaxTargetMethod@0x3fb2c06fa8} [0x3fb2c06fa8+2024]
+        -> native{./libjvm.so (0x3fee1d4000) at thread_run (0x3fee1e9abe+408)}
+------ Thread locals for thread main[id=1] ------
+                              SAFEPOINT_LATCH: {E} 0x23468ff8  {D} 0x234692c8  {T} <trigger latch>
+                                         ETLA: {E} 0x23469160  {D} 0x23469160  {T} 0x23469160
+                                         DTLA: {E} 0x234692c8  {D} 0x234692c8  {T} 0x234692c8
+                                         TTLA: {E} 0x23468ff8  {D} 0x23468ff8  {T} 0x23468ff8
+                         NATIVE_THREAD_LOCALS: {E} 0x23469430  {D} 0x23469430  {T} 0x23469430
+                                 FORWARD_LINK: {E} 0  {D} 0  {T} 0
+                                BACKWARD_LINK: {E} 0x2348c160  {D} 0x2348c160  {T} 0x2348c160
+                                 VM_OPERATION: {E} 0x3fd05e2120  {D} 0  {T} 0
+                                           ID: {E} 0x1  {D} 0x1  {T} 0x1
+                                    VM_THREAD: {E} 0x3faeeb7c58 main[id=1]  {D} 0x3faeeb7c58 main[id=1]  {T} 0x3faeeb7c58 main[id=1]
+                                      JNI_ENV: {E} 0x3fee1f2010  {D} 0x3fee1f2010  {T} 0x3fee1f2010
+                       LAST_JAVA_FRAME_ANCHOR: {E} 0x3fffd8d000  {D} 0  {T} 0
+                                MUTATOR_STATE: {E} 0x2  {D} 0  {T} 0
+                                       FROZEN: {E} 0  {D} 0  {T} 0
+                                  TRAP_NUMBER: {E} 0  {D} 0  {T} 0
+                     TRAP_INSTRUCTION_POINTER: {E} 0  {D} 0  {T} 0
+                           TRAP_FAULT_ADDRESS: {E} 0  {D} 0  {T} 0
+                          TRAP_LATCH_REGISTER: {E} 0  {D} 0  {T} 0
+                   HIGHEST_STACK_SLOT_ADDRESS: {E} 0x3fffd90000  {D} 0x3fffd90000  {T} 0x3fffd90000
+                    LOWEST_STACK_SLOT_ADDRESS: {E} 0x3fff592000  {D} 0x3fff592000  {T} 0x3fff592000
+             LOWEST_ACTIVE_STACK_SLOT_ADDRESS: {E} 0  {D} 0  {T} 0
+                          STACK_REFERENCE_MAP: {E} 0x23469480  {D} 0x23469480  {T} 0x23469480
+                         STACK_REFERENCE_SIZE: {E} 0x20008  {D} 0x20008  {T} 0x20008
+                    CUSTOM_ALLOCATION_ENABLED: {E} 0  {D} 0  {T} 0
+                                      SUSPEND: {E} 0  {D} 0  {T} 0
+                               PROFILER_STATE: {E} 0  {D} 0  {T} 0
+                                        JVMTI: {E} 0  {D} 0  {T} 0
+                                     JVMTI_TL: {E} 0  {D} 0  {T} 0
+                                  COMPILATION: {E} 0  {D} 0  {T} 0
+                        NATIVE_CALLS_DISABLED: {E} 0  {D} 0  {T} 0
+                               ERROR_CONTEXTS: {E} 0x3fce1d9e70  {D} 0x3fce1d9e70  {T} 0x3fce1d9e70
+                     TRACE_UNDER_CONSTRUCTION: {E} 0  {D} 0  {T} 0
+                                 VMLOG_RECORD: {E} 0x3fb18f8c08  {D} 0x3fb18f8c08  {T} 0x3fb18f8c08
+                                 VMLOG_BUFFER: {E} 0x3fb0c04890  {D} 0x3fb0c04890  {T} 0x3fb0c04890
+                         VMLOG_BUFFER_OFFSETS: {E} 0x8a0  {D} 0x8a0  {T} 0x8a0
+                           GC_DISABLING_COUNT: {E} 0  {D} 0  {T} 0
+                                     TLAB_TOP: {E} 0x3fd05e7ab8  {D} 0  {T} 0
+                                    TLAB_MARK: {E} 0x3fd05e2248  {D} 0  {T} 0
+                                 TLAB_TOP_TMP: {E} 0  {D} 0  {T} 0
+                                TLAB_MARK_TMP: {E} 0  {D} 0  {T} 0
+                           ALLOCATION_COUNTER: {E} 0  {D} 0  {T} 0
+                                TLAB_DISABLED: {E} 0  {D} 0  {T} 0
+                           TLAB_REFILL_POLICY: {E} 0x3fce1d9e98  {D} 0  {T} 0
+                                TLAB_LOG_TAIL: {E} 0  {D} 0  {T} 0
+                  SAMPLING_ALLOCATION_COUNTER: {E} 0  {D} 0  {T} 0
+
